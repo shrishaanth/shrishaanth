@@ -70,7 +70,7 @@ I believe that building real-world applications is one of the best ways to grow 
 ## Contact
 
 - 📧 **Email:** shrishaanth2024@gmail.com
-- 💼 **LinkedIn:** https://www.linkedin.com/in/shrishaanth-u-385b42375
+- 💼 **LinkedIn:** www.linkedin.com/in/shrishaanth-dev
 - 🌐 **GitHub:** https://github.com/shrishaanth
 
 Feel free to reach out if you'd like to collaborate, discuss projects, or connect.
