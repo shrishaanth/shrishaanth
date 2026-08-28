@@ -1,4 +1,4 @@
-&lt;div align="center"&gt;
+<div align="center">
 
 # Shrishaanth
 
@@ -10,7 +10,7 @@ Building software • Solving problems • Learning every day
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/shrishaanth)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:shrishaanth2024@gmail.com)
 
-&lt;/div&gt;
+</div>
 
 ---
 
@@ -47,6 +47,8 @@ Currently, I'm focused on strengthening my programming fundamentals while buildi
 
 ## Featured Projects
 
+<!-- Add your featured projects here -->
+
 ### [Taskify.io](https://github.com/shrishaanth/Taskify.io)
 MERN stack task manager with server-enforced RBAC (Admin/Member scoping at the DB layer), real-time Kanban sync via Socket.IO with per-user rooms, and horizontal scaling behind nginx with Redis cross-instance broadcast. Single-command Docker Compose deployment.  
 **Tech:** MongoDB, Express, React, Node.js, Socket.IO, Redis, nginx.
@@ -67,9 +69,9 @@ Lock-free, sharded geospatial pipeline ingesting millions of GPS updates via a c
 
 ## Tech Stack
 
-&lt;p align="center"&gt;
-&lt;img src="https://skillicons.dev/icons?i=c,cpp,java,python,javascript,html,css,react,nodejs,express,flask,mysql,mongodb,sqlite,git,docker,postman,linux,vscode"/&gt;
-&lt;/p&gt;
+<p align="center">
+<img src="https://skillicons.dev/icons?i=c,cpp,java,python,javascript,html,css,react,nodejs,express,flask,mysql,mongodb,sqlite,git,docker,postman,linux,vscode"/>
+</p>
 
 ---
 
@@ -87,4 +89,4 @@ I believe that building real-world applications is one of the best ways to grow 
 - 💼 **LinkedIn:** www.linkedin.com/in/shrishaanth-dev
 - 🌐 **GitHub:** https://github.com/shrishaanth
 
-Feel free to reach out if you'd like to collaborate, discuss projects, or connect.
+Feel free to reach out if you'd like to collaborate, discuss projects, or connect.                      in this , add these projects that were in the resume in the featured projects , here you put the original detailed version(unshorterned) , dont modify anything other than that
