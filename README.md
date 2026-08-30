@@ -50,7 +50,7 @@ Currently, I'm focused on strengthening my programming fundamentals while buildi
 <!-- Add your featured projects here -->
 
 ### [Taskify.io](https://github.com/shrishaanth/Taskify.io)
-MERN stack task manager with server-enforced RBAC (Admin/Member scoping at the DB layer), real-time Kanban sync via Socket.IO with per-user rooms, and horizontal scaling behind nginx with Redis cross-instance broadcast. Single-command Docker Compose deployment.  
+MERN stack task manager with server-enforced RBAC (Admin/Member scoping at the DB layer), real-time Kanban sync via Socket.IO with per-user rooms, and horizontal scaling behind ngnix.  
 **Tech:** MongoDB, Express, React, Node.js, Socket.IO, nginx.
 
 ### [Syntropy](https://github.com/shrishaanth/Syntropy.git)
