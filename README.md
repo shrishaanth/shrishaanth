@@ -51,7 +51,7 @@ Currently, I'm focused on strengthening my programming fundamentals while buildi
 
 ### [Taskify.io](https://github.com/shrishaanth/Taskify.io)
 MERN stack task manager with server-enforced RBAC (Admin/Member scoping at the DB layer), real-time Kanban sync via Socket.IO with per-user rooms, and horizontal scaling behind ngnix.  
-**Tech:** MongoDB, Express, React, Node.js, Socket.IO, nginx.
+**Tech:** MongoDB, Express, React, Node.js, Socket.IO.
 
 ### [Syntropy](https://github.com/shrishaanth/Syntropy.git)
 A point-in-time quantitative pipeline that estimates time-varying risk via EWMA, allocates capital through a from-scratch Hierarchical Risk Parity (HRP) engine, and validates performance via walk-forward backtesting with provable zero future-data leakage. Outputs an interactive Streamlit dashboard for real-time strategy benchmarking.  
