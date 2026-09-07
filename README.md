@@ -61,9 +61,6 @@ A point-in-time quantitative pipeline that estimates time-varying risk via EWMA,
 Graph engine over a real 253-zone NYC TLC directed graph (2.6M trips, Jan 2024). A custom directed graph convolution separates outbound flow, inbound flow, and self-zone dynamics to propagate demand along observed mobility corridors every 5 minutes, while a GRU reads 4-hour spatial history to emit 5/15/30/60-minute forecasts per zone. Cuts RMSE by 22--24% vs persistence at every horizon and beats per-zone ridge regression at 15--60 min. The design I'm most proud of: the spatial layer is built entirely in vanilla PyTorch --- no black-box GNN dependencies, making it trivial to ship as a lightweight forecasting microservice.  
 **Tech:** PyTorch, NumPy, Pandas, Scikit-learn, Matplotlib.
 
-### [Tessera](https://github.com/shrishaanth/Tessera.git)
-Lock-free, sharded geospatial pipeline ingesting millions of GPS updates via a custom delta-varint wire protocol over Netty. Per-core indexer threads maintain a copy-on-write Quadtree with persistent ID mapping and opportunistic compaction; spatial queries, geofencing, and A* routing are served off immutable snapshots with zero reader locks. Benchmarked via JMH against grid and naive baselines at 1K--1M points. The design I'm most proud of: the entire spatial layer is built from scratch in vanilla Java --- no external spatial libraries --- making latency and memory trade-offs fully transparent.  
-**Tech:** Java, Netty, JavaFX, JMH.
 
 ---
 
