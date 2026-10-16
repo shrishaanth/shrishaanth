@@ -37,11 +37,10 @@ Currently, I'm focused on strengthening my programming fundamentals while buildi
 
 | Category | Technologies |
 |-----------|--------------|
-| **Languages** | C • C++ • Python • JavaScript • TypeScript |
-| **Frontend** | HTML • CSS • React |
-| **Backend** | Node.js • Express.js • Socket.IO |
-| **Databases** | Oracle • MongoDB |
-| **Tools** | Git • Docker • Postman • VS Code |
+| **Languages** | Python • Java • SQL • JavaScript • C++ • C |
+| **Frameworks** | Spring Boot • Node.js • Express.js • React.js |
+| **Databases** | PostgreSQL • MySQL • MongoDB |
+| **Tools** | Git • GitHub Actions • Docker • Postman |
 
 ---
 
