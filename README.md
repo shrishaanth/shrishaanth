@@ -49,36 +49,50 @@ Currently, I'm focused on strengthening my programming fundamentals while buildi
 
 <!-- Add your featured projects here -->
 
-### [CodeAtlas](https://github.com/shrishaanth/CodeAtlas)
-Built a repository-analysis platform in Spring Boot and PostgreSQL that parses Python with Tree-sitter and mines git history with JGit. It produces a reading order, blame-based ownership with bus factor, change coupling, hotspots and evidence-linked findings, and is deployed on Vercel and Render with 138 tests.
+### [CodeAtlas](https://github.com/shrishaanth/CodeAtlas) · [Live demo](https://code-atlas-app.vercel.app)
+Understand an unfamiliar codebase. Point CodeAtlas at a repository and it produces a browsable report computed from the code (Tree-sitter) and its git history (JGit), so every number traces back to a file, line or commit.
 
-- Replaced the first reading-order formula after a train/held-out evaluation on 20 repositories showed it lost to sorting by file size. The tuned version scored 0.69 mean percentile on 10 unseen repositories, against 0.67 for file size, 0.67 for commit count and 0.50 for random.
-- Raised definition retrieval for code Q&A to 98–100% in the top 8 results on two repositories. I traced the misses to AND-combined full-text terms and a per-file cap that dropped definitions, and fixed both.
-- Verified every LLM citation against the retrieved excerpts (exact, inside an excerpt, or unsupported) after the model cited line numbers that held different code.
+- **Reading order** — where to start reading, with files ranked by churn, reach and fan-in and the reasons behind each score
+- **Ownership** — who last changed each line, bus factor per directory, single-owner and orphaned flags
+- **Change coupling & hotspots** — files that change together, including hidden dependencies with no import between them, and code that is both busy and deeply nested
+- **Architecture** — directories layered by import direction, with import cycles marked, plus an interactive import graph
+- **Findings** — near-duplicate code, committed build output, untested areas and unimported modules, each with file-and-line evidence
+- **Ask** — questions about the code; an optional LLM answers only from retrieved excerpts, and every citation is checked as exact, inside an excerpt, or unsupported
 
 **Tech:** Java 17, Spring Boot, Tree-sitter, JGit, PostgreSQL, React, TypeScript, Docker.
 
 ### [Axon](https://github.com/shrishaanth/Axon)
-Built an API change-impact tool in Java 17, Spring Boot and PostgreSQL that ranks breaking OpenAPI changes by which clients observed traffic shows are affected, labelling response-side impacts “potential” since traffic can’t show who reads a field.
+API change-impact analysis. Diff tools say a change is breaking; Axon says *who* would break. It compares what an API promises (its OpenAPI spec), what it actually does (observed traffic) and what a proposed version would change.
 
-- Wrote the evaluation method before running it: on 100 held-out synthetic populations the ranking scored tau 0.69, against 0.48 for traffic volume and −0.03 for spec-only. Diffing alone matched only 73% of `oasdiff` on 200 real version pairs, and I published that.
-- Stored traffic as order-independent counters, so replaying 1M events reproduced live ingestion exactly (4,700 events/s on one Postgres). Shipped a CI gate (`axon check`), a browser-side sanitiser that uploads only field shapes, and a React UI; 70+ tests.
+- **Impact analysis** — breaking changes ranked by the clients that real traffic shows are affected; request-side impacts are *observed*, response-side ones only *potential*, and the two are never blended
+- **Drift detection** — fields and operations that are documented but never used, or used but never documented
+- **CI gate** — `axon check` fails a pull request when an observed breaking change hits a set share of active clients
+- **Privacy by design** — captured traffic is reduced to field shapes in the browser; values never leave
+- **Web UI** — clients × fields matrix, declared vs. observed contract, per-client timeline and an API map
+- **Evaluated in the open** — the method was written before any result, and the write-up includes where Axon falls short
 
 **Tech:** Java 17, Spring Boot, PostgreSQL, OpenAPI, React, TypeScript, Docker.
 
-### [Taskify.io](https://github.com/shrishaanth/Taskify.io)
-Built a multi-tenant Kanban platform in React, TypeScript, Express and MongoDB with organisations, projects and boards, role-based access, and guards against edge cases like removing the last owner or deleting a column that still has cards. It passes 761 tests.
+### [Taskify.io](https://github.com/shrishaanth/Taskify.io) · [Live demo](https://taskify-io.vercel.app)
+Multi-tenant Kanban project management: Trello-style boards with real access control and live collaboration. One deployment serves many organisations, with work organised into projects, boards and cards.
 
-- Synced boards live across users with Socket.IO rooms per organisation, project and board. Each update applies straight to the client cache and skips the user who made it. Drag-and-drop updates the screen immediately and rolls back if the server rejects the change.
-- Secured sessions with rotating, hashed refresh tokens. Rotation is atomic, and a reused token signs the user out everywhere. Tabs share one refresh through Web Locks. Account deletion anonymises the user and is blocked while they are the only owner of an organisation.
+- **Tenant isolation** — enforced at the database layer; another organisation's data returns 404, so it is never confirmed to exist
+- **Two-layer roles** — organisation (owner, admin, member) and project (head, member) roles, re-checked on every request so a demotion applies immediately
+- **Real-time boards** — room-scoped Socket.IO updates; drag-and-drop with mouse or touch updates instantly and rolls back if the server rejects it
+- **Secure sessions** — rotating, revocable, hashed refresh tokens; reusing an old token signs the user out everywhere
+- **Team features** — email invites, @mention notifications, board search and filters, safe account deletion
+- **Tested** — 761 tests, led by a dedicated cross-tenant isolation suite
 
 **Tech:** TypeScript, React, Node.js, Express, MongoDB, Socket.IO.
 
 ### [SurgeMap](https://github.com/shrishaanth/SurgeMap)
-Built a spatio-temporal forecasting system for NYC taxi demand, predicting pickups for 258 zones 5 to 60 minutes ahead from 13M trips; a Graph WaveNet (dilated temporal convolutions plus graph convolutions over trip-flow and learned zone graphs) beat tuned gradient boosting by 2.4-3.4% RMSE (4-7% in surge periods) and persistence by 23-35%, with bootstrap confidence intervals.
+NYC taxi demand forecasting and fleet repositioning. SurgeMap forecasts pickups in each of 258 taxi zones 5, 15, 30 and 60 minutes ahead, then tests in a simulator whether sending idle vehicles to where demand is coming shortens rider waits.
 
-- Traced inflated early results to a truncated source file that had zeroed the last two test days, rebuilt the data pipeline on official TLC files with strictly chronological splits, and used single-change ablations to find what actually mattered (shuffled windows, Poisson loss, and the architecture swap that added a further 1-2%).
-- Built a fleet simulator with an LP-based repositioning policy (SciPy) that cut unmet requests from 42.8% to 26.5% at 2,000 vehicles, and showed that beyond a good forecast the fleet size, not the forecaster, was the limit; packaged everything as a 16-command Python CLI with 99 tests and seeded, reproducible runs.
+- **Graph forecaster** — a Graph WaveNet over the directed taxi-flow graph plus a zone graph it learns itself, trained on four months of NYC TLC trips
+- **Honest baselines** — compared with persistence, historical average, ridge and gradient boosting on the same data, with bootstrap confidence intervals
+- **Fleet simulator** — replays real pickups against a simulated fleet, with a min-cost-flow repositioning policy that can run on any forecast
+- **Interactive app** — a Streamlit app to explore forecasts zone by zone and run the simulator
+- **Reproducible** — one command downloads the data, a CLI runs every step, and runs are seeded
 
 **Tech:** Python, PyTorch, NumPy, Pandas, Scikit-learn, SciPy, Streamlit.
 
