@@ -37,7 +37,7 @@ Currently, I'm focused on strengthening my programming fundamentals while buildi
 
 | Category | Technologies |
 |-----------|--------------|
-| **Languages** | Python • Java • SQL • JavaScript • C++ • C |
+| **Languages** | Python • Java • SQL • JavaScript • C++ |
 | **Frameworks** | Spring Boot • Node.js • Express.js • React.js |
 | **Databases** | PostgreSQL • MySQL • MongoDB |
 | **Tools** | Git • GitHub Actions • Docker • Postman |
@@ -101,7 +101,7 @@ NYC taxi demand forecasting and fleet repositioning. SurgeMap forecasts pickups 
 ## Tech Stack
 
 <p align="center">
-<img src="https://skillicons.dev/icons?i=python,java,js,cpp,c,spring,nodejs,express,react,postgres,mysql,mongodb,git,githubactions,docker,postman"/>
+<img src="https://skillicons.dev/icons?i=python,java,js,cpp,spring,nodejs,express,react,postgres,mysql,mongodb,git,githubactions,docker,postman"/>
 </p>
 
 ---
