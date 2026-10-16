@@ -101,7 +101,7 @@ NYC taxi demand forecasting and fleet repositioning. SurgeMap forecasts pickups 
 ## Tech Stack
 
 <p align="center">
-<img src="https://skillicons.dev/icons?i=c,cpp,java,python,javascript,html,css,react,nodejs,express,flask,mysql,mongodb,sqlite,git,docker,postman,linux,vscode"/>
+<img src="https://skillicons.dev/icons?i=python,java,js,cpp,c,spring,nodejs,express,react,postgres,mysql,mongodb,git,githubactions,docker,postman"/>
 </p>
 
 ---
